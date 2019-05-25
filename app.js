@@ -9,8 +9,7 @@ app.get('/', (req, res) => {
 
 app.get('/getData', (req, res) => {
 	res.status(200).send({
-		dane: req.query.variables,
-    	skrypt: 'document.write(":"+' + req.query.port + ')'
+		skrypt: req.query.variables + 'document.write(":"+' + req.query.port + ')',
   	});
 });
 
