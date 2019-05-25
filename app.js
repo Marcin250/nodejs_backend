@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 
 app.get('/getData', (req, res) => {
 	res.status(200).send({
-		skrypt: req.query.script;
+		skrypt: req.query.script
   	});
 });
 
