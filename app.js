@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+const {NodeVM, VMScript} = require('vm2');
+const vm = new NodeVM();
+
 app.get('/', (req, res) => {
 	res.status(200).send({
 		status: 'OK'
@@ -8,8 +11,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/getData', (req, res) => {
+	const script = new VMScript(req.query.script);
 	res.status(200).send({
-		skrypt: req.query.script
+		skrypt: vm.run(script)
   	});
 });
 
