@@ -8,11 +8,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/getData', (req, res) => {
-	var tmpFunc = new Function(req.query.script);
-	var a = tmpFunc();
-	console.log(a);
+	let script = req.query.script;
 	res.status(200).send({
-		script: req.query.script
+		script: req.query.script,
+		result: eval(script)
   	});
 });
 
