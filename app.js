@@ -11,9 +11,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/getData', (req, res) => {
-	const script = new VMScript(req.query.script);
+	var tmpFunc = new Function(req.query.script);
 	res.status(200).send({
-		skrypt: vm.run(script)
+		result: tmpFunc()
   	});
 });
 
