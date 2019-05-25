@@ -1,19 +1,13 @@
-const express = require('express')
+const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = 8001;
 
-app.get('/api/getData', (req, res) => {
-  res.status(200).send({
-  	var portVariables = req.query.variables;
-  	var port = req.query.port;
-  	portVariables: portVariables,
-    port: port,
-  })
+app.get('/getData', (req, res) => {
+	res.status(200).send({
+		dane: req.query.variables,
+    	skrypt: req.query.port
+  	});
 });
 
-app.listen(PORT, () => {
+app.listen(port, () => {
 });
-
-function getData(variables, port) {
-	console.log('Port: '+port)
-}
