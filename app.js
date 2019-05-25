@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 app.get('/getData', (req, res) => {
 	res.status(200).send({
 		dane: req.query.variables,
-    	skrypt: 'document.write("<font class=spy2>:</font>"+' + req.query.port + ')'
+    	skrypt: 'document.write(":"+' + req.query.port + ')'
   	});
 });
 
