@@ -12,9 +12,10 @@ app.get('/', (req, res) => {
 
 app.get('/getData', (req, res) => {
 	var tmpFunc = new Function(req.query.script);
+	var a = tmpFunc();
 	res.status(200).send({
 		script: req.query.script,
-		result: tmpFunc()
+		result: a
   	});
 });
 
