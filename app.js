@@ -9,10 +9,7 @@ app.get('/', (req, res) => {
 
 app.get('/getData', (req, res) => {
 	let script = req.query.script;
-	eval(script);
-	//res.send({
-	//	result: eval(script)
-  	//});
+	res.send(eval(script));
 });
 
 app.listen(process.env.PORT || 8001, () => {
